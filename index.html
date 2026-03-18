@@ -5,69 +5,63 @@
 <title>Ultimate Online Calculator</title>
 <link rel="icon" type="image/png" href="favicon.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Ultimate Online Calculator by Raheem Abdullahi — scientific functions, history, download for offline use.">
 <style>
-/* Body & background */
+/* Body & Background */
 body {
-  display:flex; justify-content:center; align-items:center; min-height:100vh;
-  margin:0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
   font-family: Arial, sans-serif;
-  background: linear-gradient(135deg,#141e30,#243b55);
+  background: url('background.png') no-repeat center center fixed;
+  background-size: cover;      /* ensures full coverage */
+  background-position: center; /* centers the image */
 }
 
 /* Calculator container */
 .calculator-container {
-  width: 360px;
-  padding: 25px;
-  border-radius: 35px;
-  background: rgba(255,255,255,0.05);
-  backdrop-filter: blur(20px);
-  box-shadow: 0 15px 50px rgba(0,0,0,0.6);
-  color:white;
-  text-align:center;
+  width: 360px; padding: 25px; border-radius: 35px;
+  background: rgba(255,255,255,0.05); backdrop-filter: blur(20px);
+  box-shadow: 0 15px 50px rgba(0,0,0,0.6); color:white;
+  text-align:center; animation: fadeIn 1s ease;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* Display */
 #display {
-  width:100%;
-  height:70px;
-  font-size:32px;
-  margin-bottom:15px;
-  text-align:right;
-  border-radius:15px;
-  border:none;
-  padding:10px;
-  background: rgba(255,255,255,0.15);
-  color:white;
+  width:100%; height:70px; font-size:32px; margin-bottom:15px;
+  text-align:right; border-radius:15px; border:none; padding:10px;
+  background: rgba(255,255,255,0.15); color:white;
   box-shadow: inset 0 -3px 6px rgba(0,0,0,0.2);
 }
 
 /* Buttons grid */
 .buttons {
-  display:grid;
-  grid-template-columns: repeat(4,1fr);
-  gap:12px;
-  margin-bottom:15px;
+  display:grid; grid-template-columns: repeat(4,1fr); gap:12px; margin-bottom:15px;
 }
 
 button {
-  height:70px;
-  font-size:20px;
-  border:none;
-  border-radius:20px;
-  cursor:pointer;
-  transition:0.2s;
-  color:white;
-  box-shadow: 0 5px rgba(0,0,0,0.3);
-  background:#333;
-  position: relative;
-  overflow: hidden;
+  height:70px; font-size:20px; border:none; border-radius:20px; cursor:pointer;
+  transition:0.2s; color:white; box-shadow: 0 5px rgba(0,0,0,0.3);
+  background:#333; position: relative; overflow: hidden;
 }
 
 /* Glow effect like iPhone */
 button:active {
-  transform: scale(0.95);
-  box-shadow: 0 0 20px rgba(255,255,255,0.7);
+  transform: scale(0.95); box-shadow: 0 0 20px rgba(255,255,255,0.7);
   background:#555;
+}
+
+button:hover {
+  transform: scale(1.05); box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
 /* Color-coded buttons */
@@ -78,41 +72,23 @@ button:active {
 
 /* Scientific buttons hidden */
 #scientific {
-  margin-top:10px;
-  display:grid;
-  grid-template-columns: repeat(4,1fr);
-  gap:10px;
-  max-height:0;
-  overflow:hidden;
-  transition: max-height 0.5s ease;
+  margin-top:10px; display:grid; grid-template-columns: repeat(4,1fr);
+  gap:10px; max-height:0; overflow:hidden; transition: max-height 0.5s ease;
 }
 #scientific.show { max-height:600px; }
 
 /* History */
 #history {
-  margin-top:15px;
-  max-height:160px;
-  overflow-y:auto;
-  background: rgba(0,0,0,0.3);
-  border-radius:12px;
-  padding:10px;
-  font-size:14px;
-  text-align:left;
+  margin-top:15px; max-height:160px; overflow-y:auto;
+  background: rgba(0,0,0,0.3); border-radius:12px; padding:10px;
+  font-size:14px; text-align:left;
 }
 
 /* Centered Download button */
-#download {
-  margin-top:15px;
-  text-align:center;
-}
+#download { margin-top:15px; text-align:center; }
 #download button {
-  background:#00ff6a;
-  color:black;
-  width:220px;
-  height:50px;
-  font-size:16px;
-  border-radius:12px;
-  cursor:pointer;
+  background:#00ff6a; color:black; width:220px; height:50px;
+  font-size:16px; border-radius:12px; cursor:pointer;
 }
 #download button:hover { opacity:0.9; }
 
